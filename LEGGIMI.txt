@@ -1,0 +1,72 @@
+METHOD 0.2 — PERSONAL PERFORMANCE LAB
+====================================
+
+Versione sperimentale gratuita, senza backend, account, pubblicità o servizi a pagamento.
+I dati inseriti e importati vengono salvati nella memoria locale del browser/telefono.
+ATTENZIONE: non è ancora un'app Android nativa (.apk); è una PWA installabile se pubblicata su HTTPS.
+
+COSA C'È
+---------
+- 9 esperimenti A/B (4 originali + 5 nuovi: social, camminata dopo pranzo,
+  suono, micro-azione iniziale, luce/ambiente).
+- Assegnazione alternata/bilanciata delle condizioni A/B.
+- Timer, registro sessioni, scheda di valutazione e controllo rispetto condizione.
+- Check-in facoltativo di 30-60 secondi: energia, concentrazione e contesto.
+- Importazione locale da ZIP Samsung Health (CSV selezionati): sonno, passi, esercizi.
+- Scoperte/osservazioni prudenti su sonno, social e pasti, solo con dati sufficienti.
+- Backup e ripristino JSON del laboratorio, inclusi gli indicatori sanitari aggregati.
+
+COME PROVARLA
+--------------
+- Puoi aprire il file autonomo METHOD_0.2_Anteprima.html, se il browser lo consente.
+  È una prova rapida: l'affidabilità del salvataggio locale dipende dal browser quando
+  si apre direttamente un file scaricato, quindi non affidargli dati importanti.
+- Per un uso continuativo e per l'installazione PWA usa una pubblicazione HTTPS.
+
+PUBBLICAZIONE GRATUITA SU GITHUB PAGES (repository pubblico)
+-------------------------------------------------------------
+1. Decomprimi METHOD_0.2_PWA.zip.
+2. Su GitHub crea un repository pubblico nuovo, per esempio "method-lab".
+3. Carica il CONTENUTO della cartella "method_app" nella radice del repository
+   (index.html, app.js, method-02.js, jszip.min.js, styles.css, manifest, sw.js,
+   directory icons e file di licenza). NON caricare Samsung_Health_Export.zip.
+4. Nel repository: Settings > Pages > Build and deployment > Deploy from a branch.
+   Seleziona branch main e cartella /(root), salva.
+5. Quando GitHub Pages mostra l'URL, aprilo in Chrome sul telefono Samsung.
+6. Menu di Chrome > Installa app (o Aggiungi a schermata Home se proposto).
+
+NOTA: le pagine e il codice saranno pubblici, ma i dati importati con METHOD rimangono
+sul dispositivo: il codice non effettua alcuna chiamata a server di dati.
+
+SAMSUNG HEALTH
+---------------
+Da Samsung Health > Impostazioni > Scarica dati personali, crea l'esportazione.
+In METHOD > Dati Samsung carica l'archivio ZIP senza estrarlo.
+Si importano soltanto 3 tipi di CSV: sleep, step_daily_trend, exercise.
+Sui dati del sonno vengono conservate solo sessioni di durata almeno 3 ore:
+una regola euristica per non confondere brevi sonnellini con sonno notturno.
+Un'esportazione creata prima della tua prima notte con il Galaxy Watch NON contiene
+la registrazione successiva: è necessario esportare nuovamente Samsung Health.
+Nessun dato GPS, nessun dato identificativo del dispositivo, nessuna serie di
+frequenza cardiaca è salvata da questa prima versione di importazione.
+
+PRIVACY E LIMITI
+-----------------
+- Non inserire nello ZIP segreti o archivi cifrati: il lettore non supporta password.
+- Tutto è locale. Se cancelli i dati del sito, disinstalli l'app o cambi telefono,
+  potresti perdere lo storico. Crea periodicamente un backup JSON.
+- Un backup contiene ANCHE dati personali aggregati e spunte di contesto riservate.
+  Conservalo in un luogo sicuro e non condividerlo pubblicamente.
+- Le misurazioni smartwatch sono stime; non indicano direttamente concentrazione.
+- I confronti non dimostrano causalità e non sostituiscono indicazioni sanitarie.
+- Non variare volontariamente sonno, alimentazione o abitudini intime per generare
+  dati. L'app non assegna esperimenti che comportino privazione o comportamenti dannosi.
+- Il timer può non produrre notifiche affidabili quando Android sospende il browser.
+- Le nuove analisi iniziano solo quando sono presenti i dati minimi previsti.
+- Compatibile con il backup METHOD v0.1: conserva lo stesso schema dati di base.
+
+TERZE PARTI
+------------
+JSZip è incluso localmente con licenza MIT (vedi JSZIP-LICENSE.txt).
+Non è necessaria connessione internet per eseguire gli algoritmi di METHOD dopo
+l'installazione della PWA su HTTPS.
